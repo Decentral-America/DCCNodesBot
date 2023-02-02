@@ -8,6 +8,7 @@ from telegram.ext import Updater
 
 from dtb.settings import TELEGRAM_TOKEN
 from tgbot.dispatcher import setup_dispatcher
+from tgbot.system_commands import set_up_commands
 
 
 def run_polling(tg_token: str = TELEGRAM_TOKEN):
@@ -17,8 +18,10 @@ def run_polling(tg_token: str = TELEGRAM_TOKEN):
     dp = updater.dispatcher
     dp = setup_dispatcher(dp)
 
-    bot_info = Bot(tg_token).get_me()
+    bot_now = Bot(tg_token)
+    bot_info = bot_now.get_me()
     bot_link = f"https://t.me/{bot_info['username']}"
+    set_up_commands(bot_now)
 
     print(f"Polling of '{bot_link}' has started")
     # it is really useful to send '👋' emoji to developer

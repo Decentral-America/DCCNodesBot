@@ -4,9 +4,8 @@ from telegram import Bot, BotCommand
 
 from tgbot.main import bot
 
-
 def set_up_commands(bot_instance: Bot) -> None:
-
+    """
     langs_with_commands: Dict[str, Dict[str, str]] = {
         'en': {
             'start': 'Start django bot 🚀',
@@ -39,6 +38,16 @@ def set_up_commands(bot_instance: Bot) -> None:
             'broadcast': 'Отправить сообщение 📨',
             'ask_location': 'Отправить локацию 📍',
             'export_users': 'Экспорт users.csv 👥',
+        }
+    }
+    """
+    
+    langs_with_commands: Dict[str, Dict[str, str]] = {
+        'en': {
+            'help': 'Start bot 🚀',
+        },
+        'es': {
+            'help': 'Iniciar el bot',
         }
     }
 

@@ -26,7 +26,8 @@ def setup_dispatcher(dp):
     """
     # onboarding
     dp.add_handler(CommandHandler("start", onboarding_handlers.command_start))
-
+    dp.add_handler(CommandHandler("help", onboarding_handlers.command_start))
+    """
     # admin commands
     dp.add_handler(CommandHandler("admin", admin_handlers.admin))
     dp.add_handler(CommandHandler("stats", admin_handlers.stats))
@@ -51,7 +52,7 @@ def setup_dispatcher(dp):
     dp.add_handler(MessageHandler(
         Filters.animation, files.show_file_id,
     ))
-
+    """
     # handling errors
     dp.add_error_handler(error.send_stacktrace_to_tg_chat)
 
